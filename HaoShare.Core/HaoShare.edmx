@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="qds170127537_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fName" Type="nvarchar" MaxLength="50" />
+          <Property Name="fCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="fLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="fMessage" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fCreateDate" Type="datetime" />
+          <Property Name="fIP" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tUserDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="fStatus" Type="int" Nullable="false" />
+          <Property Name="fName" Type="nvarchar" MaxLength="50" />
+          <Property Name="fNickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="fSex" Type="nvarchar" MaxLength="2" />
+          <Property Name="fMobile" Type="nvarchar" MaxLength="11" />
+          <Property Name="fAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="fWeiXinName" Type="nvarchar" MaxLength="50" />
+          <Property Name="fHeadImg" Type="nvarchar" MaxLength="100" />
+          <Property Name="fCreateDate" Type="datetime" Nullable="false" />
+          <Property Name="fUpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="fUpdateIp" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="tUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fStatus" Type="int" Nullable="false" />
+          <Property Name="fIsLock" Type="bit" Nullable="false" />
+          <Property Name="fWeiXinID" Type="nvarchar" MaxLength="50" />
+          <Property Name="fLoginID" Type="nvarchar" MaxLength="50" />
+          <Property Name="fPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="fCreateDate" Type="datetime" Nullable="false" />
+          <Property Name="fUpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="fUpdateIp" Type="nvarchar" MaxLength="12" />
+          <Property Name="fRemark" Type="nvarchar" MaxLength="200" />
+          <Property Name="fIsBind" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="qds170127537_dbModelStoreContainer">
+          <EntitySet Name="tLog" EntityType="Self.tLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tUserDetails" EntityType="Self.tUserDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tUsers" EntityType="Self.tUsers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qds170127537_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tUserDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="fStatus" Type="Int32" Nullable="false" />
+          <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fSex" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="fMobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="fAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fWeiXinName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fHeadImg" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fCreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fUpdateIp" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fStatus" Type="Int32" Nullable="false" />
+          <Property Name="fIsLock" Type="Boolean" Nullable="false" />
+          <Property Name="fWeiXinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fLoginID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fCreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fUpdateIp" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="fRemark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fIsBind" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HaoDBConStr" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tUserDetails" EntityType="Self.tUserDetails" />
+          <EntitySet Name="tUsers" EntityType="Self.tUsers" />
+          <EntitySet Name="tLog" EntityType="qds170127537_dbModel.tLog" />
+        </EntityContainer>
+        <EntityType Name="tLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fMessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="fIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qds170127537_dbModelStoreContainer" CdmEntityContainer="HaoDBConStr">
+          <EntitySetMapping Name="tUserDetails">
+            <EntityTypeMapping TypeName="qds170127537_dbModel.tUserDetails">
+              <MappingFragment StoreEntitySet="tUserDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="fNickName" ColumnName="fNickName" />
+                <ScalarProperty Name="fSex" ColumnName="fSex" />
+                <ScalarProperty Name="fMobile" ColumnName="fMobile" />
+                <ScalarProperty Name="fAddress" ColumnName="fAddress" />
+                <ScalarProperty Name="fWeiXinName" ColumnName="fWeiXinName" />
+                <ScalarProperty Name="fHeadImg" ColumnName="fHeadImg" />
+                <ScalarProperty Name="fCreateDate" ColumnName="fCreateDate" />
+                <ScalarProperty Name="fUpdateDate" ColumnName="fUpdateDate" />
+                <ScalarProperty Name="fUpdateIp" ColumnName="fUpdateIp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tUsers">
+            <EntityTypeMapping TypeName="qds170127537_dbModel.tUsers">
+              <MappingFragment StoreEntitySet="tUsers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+                <ScalarProperty Name="fIsLock" ColumnName="fIsLock" />
+                <ScalarProperty Name="fWeiXinID" ColumnName="fWeiXinID" />
+                <ScalarProperty Name="fLoginID" ColumnName="fLoginID" />
+                <ScalarProperty Name="fPassword" ColumnName="fPassword" />
+                <ScalarProperty Name="fCreateDate" ColumnName="fCreateDate" />
+                <ScalarProperty Name="fUpdateDate" ColumnName="fUpdateDate" />
+                <ScalarProperty Name="fUpdateIp" ColumnName="fUpdateIp" />
+                <ScalarProperty Name="fRemark" ColumnName="fRemark" />
+                <ScalarProperty Name="fIsBind" ColumnName="fIsBind" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tLog">
+            <EntityTypeMapping TypeName="qds170127537_dbModel.tLog">
+              <MappingFragment StoreEntitySet="tLog">
+                <ScalarProperty Name="fCode" ColumnName="fCode" />
+                <ScalarProperty Name="fIP" ColumnName="fIP" />
+                <ScalarProperty Name="fCreateDate" ColumnName="fCreateDate" />
+                <ScalarProperty Name="fMessage" ColumnName="fMessage" />
+                <ScalarProperty Name="fLevel" ColumnName="fLevel" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

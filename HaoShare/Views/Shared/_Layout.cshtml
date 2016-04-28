@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="apple-mobile-web-app-title" content="好分享" />
+    <meta content="telephone=no" name="format-detection" />
+    <script src="~/Content/js/ndoo_prep.js"></script>
+    @Styles.Render("~/Content/css.css")
+</head>
+<body style="background-color: #f2f2f2;">
+    <div class="loading"><img src="~/Content/images/ajax-loader.gif" /></div>
+    <div data-role="page" class="index" id="index">
+        @Html.Partial("_Head")
+
+        @RenderBody()
+
+        @Html.Partial("_Foot")
+    </div>
+
+        <script>
+            @*function FirstToken() {
+                return "@HttpContext.Current.Items["FormToken"]";
+            }*@
+        </script>
+       
+        <div id="scriptArea" data-page-id="@ViewBag.PageId">
+            @Scripts.Render("~/Content/js.js")
+        </div>
+        <script type="text/javascript">
+            $(document).on("pagecreate", "#index", function () {
+                $('.slick').slick({
+                    dots: true,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    arrows: false,
+                });
+
+            });
+            $(window).load(function () {
+                $(".loading").fadeOut()
+            });
+            ndoo.init();
+        </script>
+</body>
+</html>
