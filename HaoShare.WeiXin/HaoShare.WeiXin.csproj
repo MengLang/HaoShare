@@ -49,6 +49,7 @@
     <Compile Include="Model\WeiXinMsgModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseLogic\ResponseLogic.cs" />
+    <Compile Include="ResponseLogic\ResponseMessageEvent.cs" />
     <Compile Include="ResponseLogic\ResponseMessageImage.cs" />
     <Compile Include="ResponseLogic\ResponseMessageText.cs" />
   </ItemGroup>

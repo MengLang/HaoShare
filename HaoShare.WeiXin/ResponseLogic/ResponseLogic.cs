@@ -127,21 +127,7 @@ namespace HaoShare.WeiXin.ResponseLogic
                     var CheckIn = UserCore.CheckIsUser(model.FromUserName);
                     if (!CheckIn)//不存在则写入库中
                     {
-                        var random = new Random();
-                        tUsers entity = new tUsers()
-                        {
-                            fWeiXinID = model.FromUserName,
-                            fIsLock = false,
-                            fIsBind = 0,
-                            fRemark = "",
-                            fStatus = 0,
-                            fLoginID = "",
-                            fPassword = random.Next(10000, 99999).ToString(),//随机生成密码
-                            fUpdateIp = "127.0.0.1",
-                            fCreateDate = DateTime.Now,
-                            fUpdateDate = DateTime.Now,
-                        };
-                        UserCore.AddUser(entity);
+                        UserCore.FirstInsert(model.FromUserName);
                     }
                 }
                 #endregion
@@ -229,6 +215,11 @@ namespace HaoShare.WeiXin.ResponseLogic
                     return ResponseMessageText.Message(model);
                 case RequestMsgType.Image:
                     return ResponseMessageImage.Message(model);
+                case RequestMsgType.Event:
+                    if (model.Event == "subscribe")
+                    {
+                    }
+                    return "";
             }
             return "";
         }
